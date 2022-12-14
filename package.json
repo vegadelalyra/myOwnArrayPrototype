@@ -1,0 +1,20 @@
+{
+  "name": "@delalyra/arr",
+  "version": "0.0.2",
+  "description": "'ARR': My first JS prototype of the data type Array Object. Give it a try :D \n\n npm i -D @delalyra/arr \n\n npm run test",
+  "main": "array.js",
+  "scripts": {
+    "test": "npx nodemon array.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vegadelalyra/dataStructure.git"
+  },
+  "keywords": ["platzi", "array", "customized array", "my own array", "JS array prototype", "data structure: arrays"],
+  "author": "Vega de la Lyra <lyradeperseo@gmail.com> (https://www.linkedin.com/in/vegadelalyra/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vegadelalyra/dataStructure/issues"
+  },
+  "homepage": "https://github.com/vegadelalyra/dataStructure#readme"
+}
