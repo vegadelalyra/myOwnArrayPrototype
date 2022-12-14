@@ -1,6 +1,6 @@
 {
   "name": "@delalyra/arr",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "'ARR': My first JS prototype of the data type Array Object. Give it a try :D \n\n npm i -D @delalyra/arr \n\n npm run test",
   "main": "array.js",
   "scripts": {
