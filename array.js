@@ -1,4 +1,5 @@
 // Highly recommended to run code among [npx nodemon array.js] command and a terminal spliting your screen horizontally for maximum comfort.
+// I made it easy for you :D Just run [ npm run test ] command and you will be ready.
 
 class Arr {
     // Naturally, length begins at 0
@@ -6,7 +7,7 @@ class Arr {
     // The Arr is going to be created with all the elements the users passes as arguments to the instance.
     constructor() {
         this.length = 0 
-        this.argumentsHandler.apply(this, arguments)
+        this.#argumentsHandler.apply(this, arguments)
         console.log('Custom Array created.') 
     }   
     // the classical push: adds an element at the end of your Arr.
@@ -37,7 +38,7 @@ class Arr {
 The Arr you are working with only have ${this.length == 1 ? '1 index: number 0' : `${this.length} indexes`}, index ${index} doesn't exist.`)
 
         const item = this[index]
-        this.shiftIndex(index)
+        this.#shiftIndex = index
         return console.log(this, "deleted", item)
     }
     // shift will kick off the first element [index 0] of your Arr.
@@ -46,11 +47,11 @@ The Arr you are working with only have ${this.length == 1 ? '1 index: number 0' 
         if (this.length == 0) return console.error(
             'TypeError: Arr already empty. Cannot run Arr.shift method.')
         const item = this[0]
-        this.shiftIndex(0)
+        this.#shiftIndex = 0
         return console.log(this, "shifted", item)
     }
     // private method. Nothing the user has to care about.
-    shiftIndex(index) {
+    set #shiftIndex(index) {
         for (let i = index; i < this.length - 1; i++) {
             this[i] = this[i + 1]
         }
@@ -59,8 +60,9 @@ The Arr you are working with only have ${this.length == 1 ? '1 index: number 0' 
     }
     // unshift adds an element at the beginning [index 0] of your Arr.
     unshift(item) {
-        this.unshiftIndex(0)
-        this[0] = item
+        let zero = 0
+        this.#unshiftIndex = zero
+        this[zero] = item
         return console.log(this, "unshifted", item)
     }
     // my fav one hehe... (jerks, it took me like a whole day to make it)
@@ -71,15 +73,15 @@ The Arr you are working with only have ${this.length == 1 ? '1 index: number 0' 
         if (index < 0 ) return console.error(`TypeError: Imposible to run Arr at negative indexes. 
     There's no such a thing like "negative indexes"
     **hides his quantic computer** hehe...`)
-        if (this.detector(item, index)) return console.error(`TypeError: cannot run Arr.gen() method. Item existing already at index ${index}.`)  
+        if (this.#detector(item, index)) return console.error(`TypeError: cannot run Arr.gen() method. Item existing already at index ${index}.`)  
         
         if (index > this.length) this.length = index
-        this.unshiftIndex(index)
+        this.#unshiftIndex = index
         this[index] = item
         console.log(this, "generated", item, "at", index)
     }
    // private method. Nothing the user has to care about. [it's the hearth!!!]
-    unshiftIndex(index) {
+    set #unshiftIndex(index) {
         let condition = 0, length = this.length
         for (let i = this.length; i > condition; i--) {
             let itemBehind = i - 1
@@ -100,16 +102,17 @@ The Arr you are working with only have ${this.length == 1 ? '1 index: number 0' 
     }
     // this beauty is the one that allows Arr to take care of AAALLL your arguments.
     // ...and yep, it's private. Don't stare too much, move!
-    argumentsHandler() {
+    #argumentsHandler() {
         for (const argument of arguments) this.push(argument)
         console.log(this)
     }
     // private method. Nothing the user has to care about.
-    detector(item, index) {
+    #detector(item, index) {
         return (this[index] === item)
     }
 }
 
+// just some testing
 const arr = new Arr('Diego', 'Karten', 'Oscar')
 arr.push()
 arr.push('miau')
@@ -125,12 +128,4 @@ arr.gen('miau', 2)
 arr.gen('cthulhu')
 arr.gen('cthulhu', 10)
 arr.gen()
-
-
-
-
-
-
-
-
 console.log('________________________________________________________________')
