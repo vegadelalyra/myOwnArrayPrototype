@@ -51,18 +51,18 @@ class Arr {
         console.log(this, "generated", item, "at", index)
     }
     unshiftIndex(index) {
-        let condition = 0
+        let condition = 0, length = this.length
         for (let i = this.length; i > condition; i--) {
-            let debug = i - 0
-            console.log('condition n°',i, condition, debug)
-            if (debug == -1) break
-            if (this[debug] !== undefined) {
+            let itemBehind = i - 1
+            // console.log('MY itemBehindGERR XdDdDd', 'this[3] =', this[3], 'i =', i, 'itemBehind =',itemBehind)
+            if (itemBehind === -1) break
+            if (this[itemBehind] !== undefined) {
                 condition = index
-                console.log('MY DEBUGGER xd',this[3], this[debug],i)
-                this[i] = this[debug]
+                if (this[i] && index > length) this[i] = this[itemBehind]
+                if (index < length) this[i] = this[itemBehind]
                 continue
             }
-            this[debug] = undefined
+            this[itemBehind] = undefined
         }
         this.length++
     }
@@ -76,13 +76,7 @@ class Arr {
 }
 
 const arr = new Arr('Diego', 'Karten', 'Oscar')
-arr.gen('LLEGÓELPAVOOOEOHRGAEWGO', 4) // 11
-arr.push() // 12
-arr.push('miau') // 13
-arr.push() // 14
-arr.gen('LLEGÓELPAVOOOEOHRGAEWGO', 10) // 14
-arr.gen('LLEGÓELPAVOOOEOHRGAEWGO', 20) // 21
-arr.push('miau') // 22
-arr.unshift() // 23
+arr.gen('first genAAAAAAAAAA', 8)
+arr.unshift()
 
 console.log('________________________________________________________________')
