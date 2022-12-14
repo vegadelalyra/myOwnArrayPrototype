@@ -1,2 +1,2 @@
-# dataStructure
-learning about data structure 00
+# 'ARR': My first JS prototype of the data type Array Object.
+## npm i @delalyra/dataStructure
