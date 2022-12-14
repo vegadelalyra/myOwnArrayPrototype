@@ -71,19 +71,20 @@ The Arr you are working with only have ${this.length == 1 ? '1 index: number 0' 
         if (index < 0 ) return console.error(`TypeError: Imposible to run Arr at negative indexes. 
     There's no such a thing like "negative indexes"
     **hides his quantic computer** hehe...`)
-        if (this.detector(item, index)) return console.error(`TypeError: cannot run Arr.gen() method. Item existing already at index ${index}.`)         
+        if (this.detector(item, index)) return console.error(`TypeError: cannot run Arr.gen() method. Item existing already at index ${index}.`)  
+        
         if (index > this.length) this.length = index
         this.unshiftIndex(index)
         this[index] = item
         console.log(this, "generated", item, "at", index)
     }
-   // private method. Nothing the user has to care about.
+   // private method. Nothing the user has to care about. [it's the hearth!!!]
     unshiftIndex(index) {
         let condition = 0, length = this.length
         for (let i = this.length; i > condition; i--) {
             let itemBehind = i - 1
-            // console.log('MY itemBehindGERR XdDdDd', 'this[3] =', this[3], 'i =', i, 'itemBehind =',itemBehind)
             if (itemBehind === -1) break
+            
             if (this[itemBehind] !== undefined && index != 0) {
                 condition = index
                 if (this[i] && index > length) this[i] = this[itemBehind]
@@ -121,9 +122,9 @@ arr.pop
 arr.del(-4)
 arr.gen('miau',-2)
 arr.gen('miau', 2)
-arr.gen('cthulhu', 0)
+arr.gen('cthulhu')
 arr.gen('cthulhu', 10)
-
+arr.gen()
 
 
 
